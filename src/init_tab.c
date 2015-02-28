@@ -22,6 +22,18 @@ void	init_tab_place(t_env *env)
 void	init_case(t_env *env, int x, int y)
 {
 	free(CASESTR(x, y));
+	if (CASEV(x, y) <= 4)
+		CASEC(x, y) = 0;
+	if (CASEV(x, y) > 4)
+		CASEC(x, y) = 1;
+	if (CASEV(x, y) >= 32)
+		CASEC(x, y) = 2;
+	if (CASEV(x, y) >= 128)
+		CASEC(x, y) = 3;
+	if (CASEV(x, y) >= 512)
+		CASEC(x, y) = 4;
+	if (CASEV(x, y) >= 1024)
+		CASEC(x, y) = 5;
 	CASESTR(x, y) = ft_itoa(CASEV(x, y));
 }
 

@@ -6,11 +6,22 @@
 /*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 00:45:26 by avallete          #+#    #+#             */
-/*   Updated: 2015/02/28 19:52:38 by avallete         ###   ########.fr       */
+/*   Updated: 2015/02/28 21:01:06 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <wong.h>
+
+void	init_numbercolor(void)
+{
+	start_color();
+	init_pair(0, COLOR_WHITE, COLOR_BLACK);
+	init_pair(1, COLOR_CYAN, COLOR_BLACK);
+	init_pair(2, COLOR_YELLOW, COLOR_BLACK);
+	init_pair(3, COLOR_RED, COLOR_BLACK);
+	init_pair(4, COLOR_GREEN, COLOR_BLACK);
+	init_pair(5, COLOR_MAGENTA, COLOR_BLACK);
+}
 
 void	key_hook(t_env *env, int c)
 {
@@ -61,6 +72,7 @@ int	main(void)
 		new_window();
 		clear();
 		use_default_colors();
+		init_numbercolor();
 		grep_window_value(&env);
 		init_tab(&env);
 		add_nb(&env);
