@@ -6,7 +6,7 @@
 /*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 00:45:26 by avallete          #+#    #+#             */
-/*   Updated: 2015/02/28 19:03:30 by avallete         ###   ########.fr       */
+/*   Updated: 2015/02/28 19:52:38 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	key_hook(t_env *env, int c)
 void	play_it(t_env *env)
 {
 	signal(SIGINT, SIG_IGN);
-	while (1 && (!(env->infos.echap)))
+	while ((1 && (!(env->infos.echap))))
 	{
 		expose_term(env);
 		grep_window_value(env), expose_term(env);

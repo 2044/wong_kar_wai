@@ -6,7 +6,7 @@
 /*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:04:06 by avallete          #+#    #+#             */
-/*   Updated: 2015/02/28 19:02:55 by avallete         ###   ########.fr       */
+/*   Updated: 2015/02/28 19:38:10 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,4 +106,5 @@ int					win_or_not(t_env *env);
 int		check_ln(t_env *env);
 int		check_col(t_env *env);
 void	game_over(t_env *env);
+int		is_fill(t_env *env);
 #endif

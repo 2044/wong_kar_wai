@@ -6,7 +6,7 @@
 /*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 00:37:51 by avallete          #+#    #+#             */
-/*   Updated: 2015/02/28 18:41:37 by avallete         ###   ########.fr       */
+/*   Updated: 2015/02/28 20:15:32 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,6 @@ void	grep_window_value(t_env *env)
 	}
 }
 
-void	youlose(void)
-{
-	clear();
-	refresh();
-	ft_printf("\n\n YOU LOSE !!! AHAHAH LOSER !\n");
-}
-
 void	add_numbers(t_env *env)
 {
 	int x;
@@ -50,7 +43,7 @@ void	add_numbers(t_env *env)
 		while (x < 4)
 		{
 			if (CASEV(x, y) != 0)
-				mvprintw(CASEY(x, y), CASEX(x, y), CASESTR(x, y));
+					mvprintw(CASEY(x, y), CASEX(x, y), CASESTR(x, y));
 			x++;
 		}
 		y++;

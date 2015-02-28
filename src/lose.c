@@ -6,7 +6,7 @@
 /*   By: jabadie <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 15:50:55 by jabadie           #+#    #+#             */
-/*   Updated: 2015/02/28 19:03:32 by avallete         ###   ########.fr       */
+/*   Updated: 2015/02/28 20:33:44 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,47 +14,47 @@
 
 int		check_ln(t_env *env)
 {
-	int	j;
-	int	i;
+	int	y;
+	int	x;
 
-	j = 0;
-	while (j < 4)
+	x = 0;
+	while (x < 3)
 	{
-		i = 1;
-		while (i < 4)
+		y = 0;
+		while (y < 4)
 		{
-			if (CASEV(i, j) == 0 || CASEV(i, j) == CASEV(i, (j - 1)))
+			if (CASEV(x, y) == 0 || CASEV(x + 1, y) == CASEV(x, y))
 				return (1);
-			i++;
+			y++;
 		}
-		j++;
+		x++;
 	}
 	return (0);
 }
 
 int		check_col(t_env *env)
 {
-	int	j;
-	int	i;
+	int	y;
+	int	x;
 
-	i = 0;
-	while (i < 4)
+	y = 0;
+	while (y < 3)
 	{
-		j = 1;
-		while (j < 4)
+		x = 0;
+		while (x < 4)
 		{
-			if (CASEV(j, i) == CASEV((i - 1), j))
-				return (0);
-			j++;
+			if (CASEV(x, y) == CASEV(x, y + 1))
+				return (1);
+			x++;
 		}
-		i++;
+		y++;
 	}
-	return (1);
+	return (0);
 }
 
 void	game_over(t_env *env)
 {
-	if (check_ln(env) == 1 && check_col(env) == 1)
+	if (check_ln(env) == 0 && check_col(env) == 0)
 	{
 		clear();
 		mvprintw(WINY(env) / 2, WINX(env) / 2, "YOU LOOSE !!!");
