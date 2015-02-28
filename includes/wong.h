@@ -6,7 +6,7 @@
 /*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:04:06 by avallete          #+#    #+#             */
-/*   Updated: 2015/02/28 19:38:10 by avallete         ###   ########.fr       */
+/*   Updated: 2015/02/28 21:17:38 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef enum		e_const
 typedef	struct		s_win
 {
 	unsigned int	win_x;
-	unsigned int 	win_y;
+	unsigned int	win_y;
 }					t_win;
 
 typedef	struct		s_inf
@@ -55,7 +55,7 @@ typedef struct		s_case
 	unsigned int	x;
 	unsigned int	y;
 	int				color;
-	char				*str;
+	char			*str;
 }					t_case;
 
 typedef	struct		s_env
@@ -69,22 +69,20 @@ typedef	struct		s_env
 /*
 ** WINDOW
 */
-void	grep_window_value(t_env *env);
-void	new_window(void);
-void	expose_term(t_env *env);
-void	youlose(void);
-
+void				grep_window_value(t_env *env);
+void				new_window(void);
+void				expose_term(t_env *env);
 
 /*
 ** DRAW_TAB
 */
-void	draw_tab(t_env *env);
-void	draw_cross(unsigned int x, unsigned int y,\
-		unsigned maxx, unsigned maxy);
-void	init_tab(t_env *env);
-void	init_tab_place(t_env *env);
-void	init_case(t_env *env, int x, int y);
-void	modify_tab(t_env *env);
+void				draw_tab(t_env *env);
+void				draw_cross(unsigned int x, unsigned int y,\
+												unsigned maxx, unsigned maxy);
+void				init_tab(t_env *env);
+void				init_tab_place(t_env *env);
+void				init_case(t_env *env, int x, int y);
+void				modify_tab(t_env *env);
 
 /*
 ** MOV_TAB
@@ -103,8 +101,8 @@ int					two_or_four(void);
 ** CHECK
 */
 int					win_or_not(t_env *env);
-int		check_ln(t_env *env);
-int		check_col(t_env *env);
-void	game_over(t_env *env);
-int		is_fill(t_env *env);
+int					check_ln(t_env *env);
+int					check_col(t_env *env);
+void				game_over(t_env *env);
+int					is_fill(t_env *env);
 #endif

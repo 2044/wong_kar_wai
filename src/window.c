@@ -6,7 +6,7 @@
 /*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 00:37:51 by avallete          #+#    #+#             */
-/*   Updated: 2015/02/28 21:01:10 by avallete         ###   ########.fr       */
+/*   Updated: 2015/02/28 21:25:00 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	grep_window_value(t_env *env)
 	}
 }
 
-
 void	add_numbers(t_env *env)
 {
 	int x;
@@ -45,7 +44,7 @@ void	add_numbers(t_env *env)
 		{
 			attron(COLOR_PAIR(CASEC(x, y)));
 			if (CASEV(x, y) != 0)
-					mvprintw(CASEY(x, y), CASEX(x, y), CASESTR(x, y));
+				mvprintw(CASEY(x, y), CASEX(x, y), CASESTR(x, y));
 			attroff(COLOR_PAIR(CASEC(x, y)));
 			x++;
 		}

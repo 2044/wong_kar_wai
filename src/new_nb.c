@@ -6,7 +6,7 @@
 /*   By: jabadie <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 15:02:41 by jabadie           #+#    #+#             */
-/*   Updated: 2015/02/28 19:55:19 by avallete         ###   ########.fr       */
+/*   Updated: 2015/02/28 21:24:20 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,26 +48,25 @@ void	add_nb(t_env *env)
 
 	srand(time(NULL));
 	chance = 4;
-	if (!(is_fill(env)))
+	if ((is_fill(env)))
+		return ;
+	while (1)
 	{
-		while (1)
+		j = 0;
+		while (j < 4)
 		{
-			j = 0;
-			while (j < 4)
+			i = 0;
+			while (i < 4)
 			{
-				i = 0;
-				while (i < 4)
+				if (CASEV(j, i) == 0 && rand() % chance == 0)
 				{
-					if (CASEV(j, i) == 0 && rand() % chance == 0)
-					{
-						CASEV(j, i) = two_or_four();
-						return ;
-					}
-					i++;
+					CASEV(j, i) = two_or_four();
+					return ;
 				}
-				j++;
+				i++;
 			}
-			chance--;
+			j++;
 		}
+		chance--;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: yabadxe <marvxn@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 13:06:47 by yabadxe           #+#    #+#             */
-/*   Updated: 2015/02/28 20:50:16 by avallete         ###   ########.fr       */
+/*   Updated: 2015/02/28 21:21:26 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,6 @@ unsigned int	tab_mvline(t_env *env, int y, int x, int f)
 	else if (CASEV(x, y) == tab_mvline(env, y, LR(x, f), f))
 	{
 		CASEV(x, y) *= 2;
-		mvprintw(CASEY(x, y), CASEX(x, y), "*/*\\*");
-		refresh();
-		usleep(100000);
 		if ((f == LEFT && x != 3) || (f == RIGHT && x != 0))
 			CASEV(LR(x, f), y) = 0;
 	}
@@ -47,9 +44,6 @@ unsigned int	tab_mvcol(t_env *env, int y, int x, int f)
 	else if (CASEV(x, y) == tab_mvcol(env, LR(y, f), x, f))
 	{
 		CASEV(x, y) *= 2;
-		mvprintw(CASEY(x, y), CASEX(x, y), "*/*\\*");
-		refresh();
-		usleep(100000);
 		if ((f == UP && y != 3) || (f == DOWN && y != 0))
 			CASEV(x, LR(y, f)) = 0;
 	}

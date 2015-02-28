@@ -6,7 +6,7 @@
 /*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 00:45:26 by avallete          #+#    #+#             */
-/*   Updated: 2015/02/28 21:01:06 by avallete         ###   ########.fr       */
+/*   Updated: 2015/02/28 21:21:56 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void	key_hook(t_env *env, int c)
 		win_or_not(env);
 	}
 }
-
 
 void	play_it(t_env *env)
 {

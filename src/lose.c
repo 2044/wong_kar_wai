@@ -6,7 +6,7 @@
 /*   By: jabadie <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 15:50:55 by jabadie           #+#    #+#             */
-/*   Updated: 2015/02/28 20:33:44 by avallete         ###   ########.fr       */
+/*   Updated: 2015/02/28 21:20:29 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,9 @@ void	game_over(t_env *env)
 
 int		win_or_not(t_env *env)
 {
-	int	i;
-	int	j;
-	t_const win_val;
+	int		i;
+	int		j;
+	t_const	win_val;
 
 	win_val = WIN_VALUE;
 	j = 0;

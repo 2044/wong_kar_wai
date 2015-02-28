@@ -6,12 +6,11 @@
 /*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 00:45:31 by avallete          #+#    #+#             */
-/*   Updated: 2015/02/28 15:02:12 by avallete         ###   ########.fr       */
+/*   Updated: 2015/02/28 21:19:04 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <wong.h>
-
 
 void	draw_cross(unsigned int x, unsigned int y, unsigned maxx, unsigned maxy)
 {
