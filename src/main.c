@@ -27,17 +27,17 @@ void	key_hook(t_env *env, int c)
 {
 	if (c == K_ECHAP)
 		env->infos.echap = 1;
-	if (c == 119 || c == 115)
+	if (c == KEY_UP || c == KEY_DOWN)
 	{
-		c == 119 ? mv_up(env) : mv_down(env);
+		c == KEY_UP ? mv_up(env) : mv_down(env);
 		add_nb(env);
 		modify_tab(env);
 		game_over(env);
 		win_or_not(env);
 	}
-	if (c == 97 || c == 100)
+	if (c == KEY_LEFT || c == KEY_RIGHT)
 	{
-		c == 97 ? mv_left(env) : mv_right(env);
+		c == KEY_LEFT ? mv_left(env) : mv_right(env);
 		add_nb(env);
 		modify_tab(env);
 		game_over(env);
@@ -48,11 +48,12 @@ void	key_hook(t_env *env, int c)
 void	play_it(t_env *env)
 {
 	signal(SIGINT, SIG_IGN);
+	keypad(stdscr, TRUE);
 	while ((1 && (!(env->infos.echap))))
 	{
 		expose_term(env);
 		grep_window_value(env), expose_term(env);
-		key_hook(env, getch());
+		key_hook(env, wgetch(stdscr));
 	}
 	if (env->infos.echap)
 		clear(), refresh(), endwin();

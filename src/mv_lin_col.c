@@ -18,7 +18,6 @@ unsigned int	find_next_nb(t_env *env, int y, int x, int f)
 
 	while (LR_0(x, f))
 	{
-		printf("i: %d\n", x);
 		if (CASEV(x, y) != 0)
 		{
 			nb = CASEV(x, y);
