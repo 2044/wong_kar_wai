@@ -26,7 +26,10 @@
 # define CASEC(x, y) (env->tab[y][x].color)
 # define CASESTR(x, y) (env->tab[y][x].str)
 # define K_ECHAP 27
-# define LR(i, f) (f == 1) ? (i - 1) : (i + 1)
+
+# define LR(i, f) (f == 1) ? (i > 0) : (i < 3)
+# define LR_0(i, f) (f == 1) ? (i > -1) : (i < 4)
+# define ML(i, f) (f == 1) ? (i - 1) : (i + 1)
 # define LEFT 0
 # define RIGHT 1
 # define UP 0
@@ -88,8 +91,8 @@ void				modify_tab(t_env *env);
 ** MOV_TAB
 */
 
-unsigned int		tab_mvline(t_env *env, int j, int i, int f);
-unsigned int		tab_mvcol(t_env *env, int j, int i, int f);
+void				tab_mvline(t_env *env, int j, int i, int f);
+void				tab_mvcol(t_env *env, int j, int i, int f);
 void				mv_down(t_env *env);
 void				mv_up(t_env *env);
 void				mv_right(t_env *env);

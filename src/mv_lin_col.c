@@ -12,40 +12,77 @@
 
 #include "wong.h"
 
-unsigned int	tab_mvline(t_env *env, int y, int x, int f)
+unsigned int	find_next_nb(t_env *env, int y, int x, int f)
 {
-	if ((f == LEFT && x == 4) || (f == RIGHT && x == -1))
-		return (0);
-	if (CASEV(x, y) == 0)
+	int	nb;
+
+	while (LR_0(x, f))
 	{
-		CASEV(x, y) = tab_mvline(env, y, LR(x, f), f);
-		if ((f == LEFT && x != 3) || (f == RIGHT && x != 0))
-			CASEV(LR(x, f), y) = 0;
+		printf("i: %d\n", x);
+		if (CASEV(x, y) != 0)
+		{
+			nb = CASEV(x, y);
+			CASEV(x, y) = 0;
+			return (nb);
+		}
+		x = ML(x, f);
 	}
-	else if (CASEV(x, y) == tab_mvline(env, y, LR(x, f), f))
-	{
-		CASEV(x, y) *= 2;
-		if ((f == LEFT && x != 3) || (f == RIGHT && x != 0))
-			CASEV(LR(x, f), y) = 0;
-	}
-	return (CASEV(x, y));
+	return (0);
 }
 
-unsigned int	tab_mvcol(t_env *env, int y, int x, int f)
+void	tab_mvline(t_env *env, int y, int x, int f)
 {
-	if ((f == UP && y == 4) || (f == DOWN && y == -1))
-		return (0);
-	if (CASEV(x, y) == 0)
+	while (LR(x, f))
 	{
-		CASEV(x, y) = tab_mvcol(env, LR(y, f), x, f);
-		if ((f == UP && y != 3) || (f == DOWN && y != 0))
-			CASEV(x, LR(y, f)) = 0;
+		if (CASEV(x, y) == 0)
+			CASEV(x, y) = find_next_nb(env, y, x, f);
+		else
+		{
+			if (CASEV(ML(x, f), y) == 0)
+				CASEV(ML(x, f), y) = find_next_nb(env, y, ML(x, f), f);
+			if (CASEV(x, y) == CASEV(ML(x, f), y))
+			{
+				CASEV(ML(x, f), y) = 0;
+				CASEV(x, y) *= 2;
+			}
+		}
+		x = ML(x, f);
 	}
-	else if (CASEV(x, y) == tab_mvcol(env, LR(y, f), x, f))
+}
+
+unsigned int	find_next_nb_col(t_env *env, int y, int x, int f)
+{
+	int	nb;
+
+	while (LR_0(y, f))
 	{
-		CASEV(x, y) *= 2;
-		if ((f == UP && y != 3) || (f == DOWN && y != 0))
-			CASEV(x, LR(y, f)) = 0;
+		if (CASEV(x, y) != 0)
+		{
+			nb = CASEV(x, y);
+			CASEV(x, y) = 0;
+			return (nb);
+		}
+		y = ML(y, f);
 	}
-	return (CASEV(x, y));
+	return (0);
+}
+
+void	tab_mvcol(t_env *env, int y, int x, int f)
+{
+	while (LR(y, f))
+	{
+		if (CASEV(x, y) == 0)
+			CASEV(x, y) = find_next_nb_col(env, y, x, f);
+		else
+		{
+			if (CASEV(x, ML(y, f)) == 0)
+				CASEV(x, ML(y, f)) = find_next_nb_col(env, ML(y, f), x, f);
+			if (CASEV(x, y) == CASEV(x, ML(y, f)))
+			{
+				CASEV(x, ML(y, f)) = 0;
+				CASEV(x, y) *= 2;
+			}
+		}
+		y = ML(y, f);
+	}
 }
