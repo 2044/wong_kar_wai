@@ -6,46 +6,49 @@
 /*   By: jabadie <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 13:06:47 by jabadie           #+#    #+#             */
-/*   Updated: 2015/02/28 15:55:44 by jabadie          ###   ########.fr       */
+/*   Updated: 2015/02/28 18:10:49 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wong.h"
 
-int	tab_mvline(int **tab, int j, int i, int f)
+unsigned int	tab_mvline(t_env *env, int j, int i, int f)
 {
+//	ft_printf("call funct %d\n i is %d\n", j, i);
 	if ((f == LEFT && i == 4) || (f == RIGHT && i == -1))
 		return (0);
-	if (tab[j][i] == 0)
+	if (CASEV(i, j) == 0)
 	{
-		tab[j][i] = tab_mvline(tab, j, LR(i, f), f);
+		ft_printf("adj is 0\n");
+		CASEV(i, j) = tab_mvline(env, j, LR(i, f), f);
 		if ((f == LEFT && i != 3) || (f == RIGHT && i != 0))
-			tab[j][LR(i, f)] = 0;
+			CASEV(LR(i, f), j) = 0;
 	}
-	else if (tab[j][i] == tab_mvline(tab, j, LR(i, f), f))
+	else if (CASEV(i, j) == tab_mvline(env, j, LR(i, f), f))
 	{
-		tab[j][i] *= 2;
+		CASEV(i, j) *= 2;
+		ft_printf("adj isn't 0\n");
 		if ((f == LEFT && i != 3) || (f == RIGHT && i != 0))
-			tab[j][LR(i ,f)] = 0;
+			CASEV(LR(i, f), j) = 0;
 	}
-	return (tab[j][i]);
+	return (CASEV(i, j));
 }
 
-int	tab_mvcol(int **tab, int j, int i, int f)
+unsigned int	tab_mvcol(t_env *env, int j, int i, int f)
 {
 	if ((f == UP && j == 4) || (f == DOWN && j == -1))
 		return (0);
-	if (tab[j][i] == 0)
+	if (CASEV(i, j) == 0)
 	{
-		tab[j][i] = tab_mvcol(tab, LR(j, f), i, f);
+		CASEV(i, j) = tab_mvcol(env, LR(j, f), i, f);
 		if ((f == UP && j != 3) || (f == DOWN && j != 0))
-			tab[LR(j, f)] = 0;
+			CASEV(i, LR(j, f)) = 0;
 	}
-	else if (tab[j][i] == tab_mvcol(tab, LR(j, f), i, f))
+	else if (CASEV(i, j) == tab_mvcol(env, LR(j, f), i, f))
 	{
-		tab[j][i] *= 2;
+		CASEV(i, j) *= 2;
 		if ((f == UP && j != 3) || (f == DOWN && j != 0))
-			tab[LR(j, f)][i] = 0;
+			CASEV(i, LR(j, f)) = 0;
 	}
-	return (tab[j][i]);
+	return (CASEV(i, j));
 }

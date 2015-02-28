@@ -6,13 +6,13 @@
 /*   By: jabadie <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 15:50:55 by jabadie           #+#    #+#             */
-/*   Updated: 2015/02/28 16:28:48 by jabadie          ###   ########.fr       */
+/*   Updated: 2015/02/28 17:31:30 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wong.h"
 
-int		check_ln(int **tab)
+int		check_ln(t_env *env)
 {
 	int	j;
 	int	i;
@@ -23,7 +23,7 @@ int		check_ln(int **tab)
 		i = 1;
 		while (i < 4)
 		{
-			if (tab[j][i] == 0 || tab[j][i] == tab[j][i - 1])
+			if (CASEV(j, i) == 0 || CASEV(j, i) == CASEV(j, (i - 1)))
 				return (0);
 			i++;
 		}
@@ -32,7 +32,7 @@ int		check_ln(int **tab)
 	return (1);
 }
 
-int		check_col(int **tab)
+int		check_col(t_env *env)
 {
 	int	j;
 	int	i;
@@ -43,7 +43,7 @@ int		check_col(int **tab)
 		j = 1;
 		while (j < 4)
 		{
-			if (tab[j][i] == tab[j - 1][i])
+			if (CASEV(j, i) == CASEV((j - 1), i))
 				return (0);
 			j++;
 		}
@@ -52,9 +52,9 @@ int		check_col(int **tab)
 	return (1);
 }
 
-void	game_over(int **tab)
+void	game_over(t_env *env)
 {
-	if (check_ln(tab) == 0 && check_col(tab) == 0)
+	if (check_ln(env) == 0 && check_col(env) == 0)
 		exit(0);
 }
 
@@ -70,7 +70,7 @@ int		check_win_value(void)
 	return (0);
 }
 
-int		win_or_not(int **tab)
+int		win_or_not(t_env *env)
 {
 	int	i;
 	int	j;
@@ -83,7 +83,7 @@ int		win_or_not(int **tab)
 		i = 0;
 		while (i < 4)
 		{
-			if (tab[j][i] == win_val)
+			if (CASEV(j, i) == win_val)
 				return (1);
 			i++;
 		}

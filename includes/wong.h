@@ -6,7 +6,7 @@
 /*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:04:06 by avallete          #+#    #+#             */
-/*   Updated: 2015/02/28 16:28:48 by jabadie          ###   ########.fr       */
+/*   Updated: 2015/02/28 18:10:50 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@
 # define WINX(x) (x->win.win_x)
 # define WINY(x) (x->win.win_y)
 # define CASEV(x, y) (env->tab[y][x].value)
-# define CASEX(x, y) (env->tab[y][x].value)
-# define CASEY(x, y) (env->tab[y][x].value)
-# define CASEC(x, y) (env->tab[y][x].value)
+# define CASEX(x, y) (env->tab[y][x].x)
+# define CASEY(x, y) (env->tab[y][x].y)
+# define CASEC(x, y) (env->tab[y][x].color)
+# define CASESTR(x, y) (env->tab[y][x].str)
 # define K_ECHAP 27
-
-# define LR(i, f) (f == 1) ? (i - 1) : (i + 1)
-# define LEFT 1
-# define RIGHT 0
+# define LR(i, f) (f == 1) ? (i -= 1) : (i += 1)
+# define LEFT 0
+# define RIGHT 1
 # define UP 0
 # define DOWN 1
 
@@ -51,10 +51,11 @@ typedef	struct		s_inf
 
 typedef struct		s_case
 {
-	int				value;
+	unsigned int	value;
 	unsigned int	x;
 	unsigned int	y;
 	int				color;
+	char				*str;
 }					t_case;
 
 typedef	struct		s_env
@@ -71,6 +72,7 @@ typedef	struct		s_env
 void	grep_window_value(t_env *env);
 void	new_window(void);
 void	expose_term(t_env *env);
+void	youlose(void);
 
 
 /*
@@ -79,17 +81,21 @@ void	expose_term(t_env *env);
 void	draw_tab(t_env *env);
 void	draw_cross(unsigned int x, unsigned int y,\
 		unsigned maxx, unsigned maxy);
+void	init_tab(t_env *env);
+void	init_tab_place(t_env *env);
+void	init_case(t_env *env, int x, int y);
+void	modify_tab(t_env *env);
 
 /*
 ** MOV_TAB
 */
 
-int		tab_mvline(int **tab, int j, int i, int f);
-int		tab_mvcol(int **tab, int j, int i, int f);
-
-void	mv_down(int **tab);
-void	mv_up(int **tab);
-void	mv_right(int **tab);
-void	mv_left(int **tab);
-
+unsigned int		tab_mvline(t_env *env, int j, int i, int f);
+unsigned int		tab_mvcol(t_env *env, int j, int i, int f);
+void	mv_down(t_env *env);
+void	mv_up(t_env *env);
+void	mv_right(t_env *env);
+void	mv_left(t_env *env);
+void	add_nb(t_env *env);
+int		two_or_four(void);
 #endif

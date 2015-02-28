@@ -6,7 +6,7 @@
 /*   By: jabadie <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 15:02:41 by jabadie           #+#    #+#             */
-/*   Updated: 2015/02/28 16:15:29 by jabadie          ###   ########.fr       */
+/*   Updated: 2015/02/28 17:36:30 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 int		two_or_four(void)
 {
-	if (rand() % 3 == 0)
+	if (rand() % 9 == 0)
 		return (4);
 	else
 		return (2);
 }
 
-void	add_nb(int **tab)
+void	add_nb(t_env *env)
 {
 	int	i;
 	int	j;
@@ -36,9 +36,9 @@ void	add_nb(int **tab)
 			i = 0;
 			while (i < 4)
 			{
-				if (tab[j][i] == 0 && rand() % chance == 0)
+				if (CASEV(j, i) == 0 && rand() % chance == 0)
 				{
-					tab[j][i] = two_or_four();
+					CASEV(j, i) = two_or_four();
 					return ;
 				}
 				i++;

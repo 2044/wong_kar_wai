@@ -6,14 +6,19 @@
 #    By: avallete <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/18 13:18:20 by avallete          #+#    #+#              #
-#    Updated: 2015/02/28 13:04:57 by jabadie          ###   ########.fr        #
+#    Updated: 2015/02/28 17:44:36 by avallete         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC_PATH:=./src/
 SRC_NAME:=	main.c\
 			window.c\
-			draw_tab.c
+			draw_tab.c\
+    lose.c\
+    mv_lin_col.c\
+    new_nb.c\
+    updown_leftright.c\
+			init_tab.c
 CFLAGS=-Wall -Wextra -Werror
 OBJ_PATH =./obj/
 OBJ_NAME=$(SRC_NAME:.c=.o)
@@ -42,6 +47,12 @@ $(NAME):$(OBJ)
 	@make -s -C libft
 	@echo "${GREEN}Compile $(NAME) with $(CFLAGS)${NC}";
 	@gcc $(CLFAGS) $(OBJ) $(INC) $(LIBFT) -o $(NAME)
+
+
+debug:$(OBJ)
+	@make -s -C libft
+	@echo "${GREEN}Compile $(NAME) with $(CFLAGS)${NC}";
+	@gcc -g $(OBJ) $(INC) $(LIBFT) -o $(NAME)
 
 $(OBJ_PATH)%.o:$(SRC_PATH)%.c
 	@mkdir -p $(OBJ_PATH)

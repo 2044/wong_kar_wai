@@ -6,56 +6,56 @@
 /*   By: jabadie <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 14:27:14 by jabadie           #+#    #+#             */
-/*   Updated: 2015/02/28 15:42:24 by jabadie          ###   ########.fr       */
+/*   Updated: 2015/02/28 18:10:51 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wong.h"
 
-void	mv_left(int **tab)
+void	mv_left(t_env *env)
 {
 	int	j;
 
 	j = 0;
 	while (j < 4)
 	{
-		tab_mvline(tab, j, 0, LEFT);
+		tab_mvline(env, j, 0, LEFT);
 		j++;
 	}
 }
 
-void	mv_right(int **tab)
+void	mv_right(t_env *env)
 {
 	int	j;
 
 	j = 0;
 	while (j < 4)
 	{
-		tab_mvline(tab, j, 3, RIGHT);
+		tab_mvline(env, j, 3, RIGHT);
 		j++;
 	}
 }
 
-void	mv_up(int **tab)
+void	mv_up(t_env *env)
 {
 	int	i;
 
 	i = 0;
 	while (i < 4)
 	{
-		tab_mvcol(tab, 0, i, UP);
+		tab_mvcol(env, 0, i, UP);
 		i++;
 	}
 }
 
-void	mv_down(int **tab)
+void	mv_down(t_env *env)
 {
 	int	i;
 
 	i = 0;
 	while (i < 4)
 	{
-		tab_mvcol(tab, 3, i, DOWN);
+		tab_mvcol(env, 3, i, DOWN);
 		i++;
 	}
 }

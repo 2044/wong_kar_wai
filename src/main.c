@@ -6,7 +6,7 @@
 /*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 00:45:26 by avallete          #+#    #+#             */
-/*   Updated: 2015/02/28 14:00:34 by jabadie          ###   ########.fr       */
+/*   Updated: 2015/02/28 18:05:40 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,18 @@ void	key_hook(t_env *env, int c)
 {
 	if (c == K_ECHAP)
 		env->infos.echap = 1;
+	if (c == 119 || c == 115)
+	{
+		c == 119 ? mv_up(env) : mv_down(env);
+		add_nb(env);
+		modify_tab(env);
+	}
+	if (c == 97 || c == 100)
+	{
+		c == 97 ? mv_left(env) : mv_right(env);
+		add_nb(env);
+		modify_tab(env);
+	}
 }
 
 void	play_it(t_env *env)
@@ -28,34 +40,7 @@ void	play_it(t_env *env)
 		key_hook(env, getch());
 	}
 	if (env->infos.echap)
-		endwin();
-}
-
-void	init_tab(t_env *env)
-{
-	int x;
-	int y;
-
-	x = 0;
-	y = 0;
-	while (y < 4)
-	{
-		x = 0;
-		while (x < 4)
-		{
-			CASEV(x, y) = 0;
-			CASEX(x, y) = ((x + 1) * (WINX(env) / 8));
-			printf("%d\n", CASEX(x, y));
-			CASEY(x, y) = ((y + 1) * (WINY(env) / 8));
-			CASEC(x, y) = 0;
-			mvprintw(CASEY(x, y), CASEX(x, y), "0");
-			refresh();
-			x++;
-		}
-		refresh();
-		sleep(1);
-		y++;
-	}
+		clear(), refresh(), endwin();
 }
 
 int	main(void)
@@ -71,6 +56,9 @@ int	main(void)
 		clear();
 		grep_window_value(&env);
 		init_tab(&env);
+		add_nb(&env);
+		add_nb(&env);
+		modify_tab(&env);
 		play_it(&env);
 	}
 	else
