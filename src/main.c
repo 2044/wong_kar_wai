@@ -6,7 +6,7 @@
 /*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 00:45:26 by avallete          #+#    #+#             */
-/*   Updated: 2015/02/28 18:05:40 by avallete         ###   ########.fr       */
+/*   Updated: 2015/02/28 19:03:30 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,19 @@ void	key_hook(t_env *env, int c)
 		c == 119 ? mv_up(env) : mv_down(env);
 		add_nb(env);
 		modify_tab(env);
+		game_over(env);
+		win_or_not(env);
 	}
 	if (c == 97 || c == 100)
 	{
 		c == 97 ? mv_left(env) : mv_right(env);
 		add_nb(env);
 		modify_tab(env);
+		game_over(env);
+		win_or_not(env);
 	}
 }
+
 
 void	play_it(t_env *env)
 {
@@ -50,10 +55,12 @@ int	main(void)
 
 	env.def = WIN_VALUE;
 	env.infos.echap = 0;
-	if (!((env.def) % 2))
+	env.infos.win = 0;
+	if (((WIN_VALUE & (WIN_VALUE - 1)) == 0) && WIN_VALUE >= 2)
 	{
 		new_window();
 		clear();
+		use_default_colors();
 		grep_window_value(&env);
 		init_tab(&env);
 		add_nb(&env);

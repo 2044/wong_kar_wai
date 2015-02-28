@@ -6,7 +6,7 @@
 /*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:04:06 by avallete          #+#    #+#             */
-/*   Updated: 2015/02/28 18:10:50 by avallete         ###   ########.fr       */
+/*   Updated: 2015/02/28 19:02:55 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # define CASEC(x, y) (env->tab[y][x].color)
 # define CASESTR(x, y) (env->tab[y][x].str)
 # define K_ECHAP 27
-# define LR(i, f) (f == 1) ? (i -= 1) : (i += 1)
+# define LR(i, f) (f == 1) ? (i - 1) : (i + 1)
 # define LEFT 0
 # define RIGHT 1
 # define UP 0
@@ -46,7 +46,7 @@ typedef	struct		s_win
 typedef	struct		s_inf
 {
 	int				echap;
-	int				redraw;
+	int				win;
 }					t_inf;
 
 typedef struct		s_case
@@ -92,10 +92,18 @@ void	modify_tab(t_env *env);
 
 unsigned int		tab_mvline(t_env *env, int j, int i, int f);
 unsigned int		tab_mvcol(t_env *env, int j, int i, int f);
-void	mv_down(t_env *env);
-void	mv_up(t_env *env);
-void	mv_right(t_env *env);
-void	mv_left(t_env *env);
-void	add_nb(t_env *env);
-int		two_or_four(void);
+void				mv_down(t_env *env);
+void				mv_up(t_env *env);
+void				mv_right(t_env *env);
+void				mv_left(t_env *env);
+void				add_nb(t_env *env);
+int					two_or_four(void);
+
+/*
+** CHECK
+*/
+int					win_or_not(t_env *env);
+int		check_ln(t_env *env);
+int		check_col(t_env *env);
+void	game_over(t_env *env);
 #endif
