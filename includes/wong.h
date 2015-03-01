@@ -6,7 +6,7 @@
 /*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:04:06 by avallete          #+#    #+#             */
-/*   Updated: 2015/03/01 15:54:45 by avallete         ###   ########.fr       */
+/*   Updated: 2015/03/01 17:55:18 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,4 +134,10 @@ void				ft_menu(t_env *env);
 void				print_menu(t_env *env);
 void				key_menu(t_env *env, int c);
 void				new_game(t_env *env);
+
+/*
+** SLEEP
+*/
+void	ft_usleep(long unsigned int time);
+void	ft_sleep(long unsigned int time);
 #endif

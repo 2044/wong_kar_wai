@@ -6,7 +6,7 @@
 #    By: avallete <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/18 13:18:20 by avallete          #+#    #+#              #
-#    Updated: 2015/03/01 13:39:46 by avallete         ###   ########.fr        #
+#    Updated: 2015/03/01 17:39:14 by avallete         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRC_NAME:=	main.c\
 			key_hook.c\
 			play.c\
 			menu.c\
+			ft_sleep.c\
 			init_tab.c
 CFLAGS=-Wall -Wextra -Werror
 OBJ_PATH =./obj/
