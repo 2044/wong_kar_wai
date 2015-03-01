@@ -6,7 +6,7 @@
 /*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 13:15:06 by avallete          #+#    #+#             */
-/*   Updated: 2015/03/01 14:18:40 by avallete         ###   ########.fr       */
+/*   Updated: 2015/03/01 14:41:49 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	print_menu(t_env *env)
 			key_menu(env, c);
 		refresh();
 	}
+	endwin();
 }
 
 void	ft_menu(t_env *env)

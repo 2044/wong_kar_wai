@@ -6,7 +6,7 @@
 /*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:04:06 by avallete          #+#    #+#             */
-/*   Updated: 2015/03/01 13:39:15 by avallete         ###   ########.fr       */
+/*   Updated: 2015/03/01 14:52:59 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@
 
 typedef enum		e_const
 {
-	WIN_VALUE = 16
+	WIN_VALUE = 2048
 }					t_const;
 
 typedef	struct		s_win
