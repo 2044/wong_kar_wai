@@ -6,7 +6,7 @@
 /*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 00:45:26 by avallete          #+#    #+#             */
-/*   Updated: 2015/02/28 21:21:56 by avallete         ###   ########.fr       */
+/*   Updated: 2015/03/01 11:30:00 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	key_hook(t_env *env, int c)
 	if (c == KEY_UP || c == KEY_DOWN)
 	{
 		c == KEY_UP ? mv_up(env) : mv_down(env);
-		add_nb(env);
+		env->infos.dep || env->infos.join ? add_nb(env) : 0;
 		modify_tab(env);
 		game_over(env);
 		win_or_not(env);
@@ -38,7 +38,7 @@ void	key_hook(t_env *env, int c)
 	if (c == KEY_LEFT || c == KEY_RIGHT)
 	{
 		c == KEY_LEFT ? mv_left(env) : mv_right(env);
-		add_nb(env);
+		env->infos.dep || env->infos.join ? add_nb(env) : 0;
 		modify_tab(env);
 		game_over(env);
 		win_or_not(env);
@@ -67,6 +67,8 @@ int	main(void)
 	env.def = WIN_VALUE;
 	env.infos.echap = 0;
 	env.infos.win = 0;
+	env.infos.dep = 0;
+	env.infos.join = 0;
 	if (((WIN_VALUE & (WIN_VALUE - 1)) == 0) && WIN_VALUE >= 2)
 	{
 		new_window();

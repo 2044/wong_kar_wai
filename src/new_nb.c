@@ -6,7 +6,7 @@
 /*   By: jabadie <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 15:02:41 by jabadie           #+#    #+#             */
-/*   Updated: 2015/02/28 21:24:20 by avallete         ###   ########.fr       */
+/*   Updated: 2015/03/01 11:20:21 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ void	add_nb(t_env *env)
 				if (CASEV(j, i) == 0 && rand() % chance == 0)
 				{
 					CASEV(j, i) = two_or_four();
+					env->infos.dep = 0;
+					env->infos.join = 0;
 					return ;
 				}
 				i++;

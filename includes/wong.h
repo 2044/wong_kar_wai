@@ -6,7 +6,7 @@
 /*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:04:06 by avallete          #+#    #+#             */
-/*   Updated: 2015/02/28 21:17:38 by avallete         ###   ########.fr       */
+/*   Updated: 2015/03/01 12:01:33 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # define CASESTR(x, y) (env->tab[y][x].str)
 # define K_ECHAP 27
 
-# define LR(i, f) (f == 1) ? (i > 0) : (i < 3)
+# define LR(i, f) (f == 1) ? (i > 0) : (i < 4)
 # define LR_0(i, f) (f == 1) ? (i > -1) : (i < 4)
 # define ML(i, f) (f == 1) ? (i - 1) : (i + 1)
 # define LEFT 0
@@ -50,6 +50,8 @@ typedef	struct		s_inf
 {
 	int				echap;
 	int				win;
+	int				dep;
+	int				join;
 }					t_inf;
 
 typedef struct		s_case
