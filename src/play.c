@@ -6,7 +6,7 @@
 /*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 12:20:09 by avallete          #+#    #+#             */
-/*   Updated: 2015/03/01 14:33:12 by avallete         ###   ########.fr       */
+/*   Updated: 2015/03/01 15:35:28 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,14 @@ void	play_it(t_env *env)
 {
 	signal(SIGINT, SIG_IGN);
 	keypad(stdscr, TRUE);
-	while ((1 && (!(env->infos.echap))))
+	while (((!(env->infos.echap))))
 	{
 		expose_term(env);
 		grep_window_value(env), expose_term(env);
 		init_inf(env);
 		key_hook(env, wgetch(stdscr));
+		game_over(env);
+		win_or_not(env);
 	}
 	if (env->infos.echap)
 		clear(), refresh(), endwin();

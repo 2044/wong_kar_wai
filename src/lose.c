@@ -6,7 +6,7 @@
 /*   By: jabadie <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 15:50:55 by jabadie           #+#    #+#             */
-/*   Updated: 2015/03/01 13:00:54 by avallete         ###   ########.fr       */
+/*   Updated: 2015/03/01 15:37:50 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ void	game_over(t_env *env)
 		clear();
 		mvprintw(WINY(env) / 2, WINX(env) / 2, "YOU LOOSE !!!");
 		refresh(), sleep(3);
+		expose_term(env);
+		sleep(5);
 		ft_menu(env);
 	}
 }
