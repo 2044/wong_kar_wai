@@ -6,7 +6,7 @@
 /*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 00:45:26 by avallete          #+#    #+#             */
-/*   Updated: 2015/03/01 12:39:49 by avallete         ###   ########.fr       */
+/*   Updated: 2015/03/01 12:45:30 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,10 @@ int	main(void)
 	{
 		new_window();
 		clear();
+		keypad(stdscr, TRUE);
 		use_default_colors();
 		init_numbercolor();
-		grep_window_value(&env);
-		init_tab(&env);
-		add_nb(&env);
-		add_nb(&env);
-		modify_tab(&env);
-		play_it(&env);
+		ft_menu(&env);
 	}
 	else
 		ft_printf("Error bad win_value, not 2 pow");

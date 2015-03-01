@@ -6,7 +6,7 @@
 #    By: avallete <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/18 13:18:20 by avallete          #+#    #+#              #
-#    Updated: 2015/03/01 12:24:33 by avallete         ###   ########.fr        #
+#    Updated: 2015/03/01 13:39:46 by avallete         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRC_NAME:=	main.c\
 			colors.c\
 			key_hook.c\
 			play.c\
+			menu.c\
 			init_tab.c
 CFLAGS=-Wall -Wextra -Werror
 OBJ_PATH =./obj/
@@ -35,7 +36,7 @@ OBJ=$(addprefix $(OBJ_PATH), $(OBJ_NAME))
 INCF=$(addprefix $(INC_PATH), $(INC_NAME))
 INC=$(addprefix -I, $(INC_PATH))
 LIBFT:=-L libft -lftprintf -lncurses
-CFLAGS=-Wall -Wextra -Werror -std=c89
+CFLAGS=-Wall -Wextra -Werror
 CC=-gcc
 NAME=game_2048
 RED=\033[30;41m
@@ -50,12 +51,6 @@ $(NAME):$(OBJ)
 	@make -s -C libft
 	@echo "${GREEN}Compile $(NAME) with $(CFLAGS)${NC}";
 	@gcc $(CLFAGS) $(OBJ) $(INC) $(LIBFT) -o $(NAME)
-
-
-debug:$(OBJ)
-	@make -s -C libft
-	@echo "${GREEN}Compile $(NAME) with $(CFLAGS)${NC}";
-	@gcc -g $(OBJ) $(INC) $(LIBFT) -o $(NAME)
 
 $(OBJ_PATH)%.o:$(SRC_PATH)%.c
 	@mkdir -p $(OBJ_PATH)

@@ -6,7 +6,7 @@
 /*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:04:06 by avallete          #+#    #+#             */
-/*   Updated: 2015/03/01 12:35:49 by avallete         ###   ########.fr       */
+/*   Updated: 2015/03/01 13:39:15 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,4 +125,12 @@ void				key_hook(t_env *env, int c);
 ** PLAY
 */
 void				play_it(t_env *env);
+
+/*
+** MENU
+*/
+void				ft_menu(t_env *env);
+void				print_menu(t_env *env);
+void				key_menu(t_env *env, int c);
+void				new_game(t_env *env);
 #endif
