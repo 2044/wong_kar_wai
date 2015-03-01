@@ -6,7 +6,7 @@
 /*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 13:15:06 by avallete          #+#    #+#             */
-/*   Updated: 2015/03/01 13:39:02 by avallete         ###   ########.fr       */
+/*   Updated: 2015/03/01 14:18:40 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	key_menu(t_env *env, int c)
 {
 	if (c == 110)
 		new_game(env);
+	if (c == 410)
+		grep_window_value(env);
 	if (c == 113 || c == K_ECHAP)
 		clear(), refresh(), env->infos.echap = 1, endwin();
 }
@@ -39,17 +41,15 @@ void	print_menu(t_env *env)
 {
 	int c;
 
-	clear();
 	while ((!(env->infos.echap)))
 	{
+		clear();
 		mvprintw(WINY(env) / 2, WINX(env) / 2, "Menu:");
 		mvprintw((WINY(env) / 2) + 1, (WINX(env) / 2) - 1, "n : New Game");
 		mvprintw((WINY(env) / 2) + 2, (WINX(env) / 2) - 1, "q : Quit Game :'(");
 		c = wgetch(stdscr);
-		if (c == 110 || c == 113 || c == K_ECHAP)
+		if (c == 110 || c == 113 || c == K_ECHAP || c == 410)
 			key_menu(env, c);
-		else
-			print_invakey(env), usleep(150000), clear();
 		refresh();
 	}
 }
