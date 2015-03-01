@@ -6,7 +6,7 @@
 /*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:04:06 by avallete          #+#    #+#             */
-/*   Updated: 2015/03/01 17:55:18 by avallete         ###   ########.fr       */
+/*   Updated: 2015/03/01 18:13:07 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,6 +138,6 @@ void				new_game(t_env *env);
 /*
 ** SLEEP
 */
-void	ft_usleep(long unsigned int time);
-void	ft_sleep(long unsigned int time);
+void				ft_usleep(long unsigned int time);
+void				ft_sleep(long unsigned int time);
 #endif
