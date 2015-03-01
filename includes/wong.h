@@ -6,7 +6,7 @@
 /*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:04:06 by avallete          #+#    #+#             */
-/*   Updated: 2015/03/01 14:52:59 by avallete         ###   ########.fr       */
+/*   Updated: 2015/03/01 15:54:45 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef	struct		s_inf
 	int				win;
 	int				dep;
 	int				join;
+	int				loose;
 }					t_inf;
 
 typedef struct		s_case

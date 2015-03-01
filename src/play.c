@@ -6,7 +6,7 @@
 /*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 12:20:09 by avallete          #+#    #+#             */
-/*   Updated: 2015/03/01 15:35:28 by avallete         ###   ########.fr       */
+/*   Updated: 2015/03/01 15:55:31 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	play_it(t_env *env)
 {
 	signal(SIGINT, SIG_IGN);
 	keypad(stdscr, TRUE);
+	env->infos.loose = 0;
 	while (((!(env->infos.echap))))
 	{
 		expose_term(env);
