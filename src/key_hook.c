@@ -6,7 +6,7 @@
 /*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 12:12:02 by avallete          #+#    #+#             */
-/*   Updated: 2015/03/01 18:12:13 by avallete         ###   ########.fr       */
+/*   Updated: 2015/03/01 18:18:49 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ void	key_hook(t_env *env, int c)
 		env->infos.dep == 1 || env->infos.join ? add_nb(env) : 0;
 		modify_tab(env);
 	}
-	ft_usleep(20000000);
+	ft_usleep(29000000);
 }

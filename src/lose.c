@@ -6,7 +6,7 @@
 /*   By: jabadie <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 15:50:55 by jabadie           #+#    #+#             */
-/*   Updated: 2015/03/01 17:55:41 by avallete         ###   ########.fr       */
+/*   Updated: 2015/03/01 18:22:14 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int		check_col(t_env *env)
 
 void	game_over(t_env *env)
 {
-	if (check_ln(env) == 0 && check_col(env) == 0)
+	if ((check_ln(env) == 0 && check_col(env) == 0) && is_fill(env))
 	{
 		clear();
 		mvprintw(WINY(env) / 2, WINX(env) / 2, "YOU LOOSE !!!");
