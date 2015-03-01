@@ -6,13 +6,14 @@
 /*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:04:06 by avallete          #+#    #+#             */
-/*   Updated: 2015/03/01 18:13:07 by avallete         ###   ########.fr       */
+/*   Updated: 2015/03/01 19:12:28 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WONG_H
 # define WONG_H
 # include <libft.h>
+# include <fcntl.h>
 # include <get_next_line.h>
 # include <ft_printf.h>
 # include <time.h>
@@ -53,6 +54,7 @@ typedef	struct		s_inf
 	int				dep;
 	int				join;
 	int				loose;
+	char			buf[64];
 }					t_inf;
 
 typedef struct		s_case
@@ -126,6 +128,7 @@ void				key_hook(t_env *env, int c);
 ** PLAY
 */
 void				play_it(t_env *env);
+void				print_highscore(t_env *env);
 
 /*
 ** MENU
@@ -140,4 +143,13 @@ void				new_game(t_env *env);
 */
 void				ft_usleep(long unsigned int time);
 void				ft_sleep(long unsigned int time);
+
+/*
+** HIGHT_SCORE
+*/
+
+void				high_score(t_env *env);
+int					count_score(t_env *env);
+int					replace_hscore(int score, t_env *env);
+int					read_hscore(t_env *env);
 #endif

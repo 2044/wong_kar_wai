@@ -6,7 +6,7 @@
 /*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 00:45:26 by avallete          #+#    #+#             */
-/*   Updated: 2015/03/01 12:45:30 by avallete         ###   ########.fr       */
+/*   Updated: 2015/03/01 19:08:28 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int	main(void)
 		keypad(stdscr, TRUE);
 		use_default_colors();
 		init_numbercolor();
+		init_tab(&env);
+		high_score(&env);
 		ft_menu(&env);
 	}
 	else

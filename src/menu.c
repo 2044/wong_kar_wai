@@ -6,7 +6,7 @@
 /*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 13:15:06 by avallete          #+#    #+#             */
-/*   Updated: 2015/03/01 15:56:41 by avallete         ###   ########.fr       */
+/*   Updated: 2015/03/01 19:11:57 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ void	print_menu(t_env *env)
 	while ((!(env->infos.echap)))
 	{
 		clear();
+		high_score(env);
+		print_highscore(env);
 		mvprintw(WINY(env) / 2, WINX(env) / 2, "Menu:");
 		mvprintw((WINY(env) / 2) + 1, (WINX(env) / 2) - 1, "n : New Game");
 		mvprintw((WINY(env) / 2) + 2, (WINX(env) / 2) - 1, "q : Quit Game :'(");

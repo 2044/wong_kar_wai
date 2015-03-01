@@ -6,7 +6,7 @@
 /*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 12:20:09 by avallete          #+#    #+#             */
-/*   Updated: 2015/03/01 15:55:31 by avallete         ###   ########.fr       */
+/*   Updated: 2015/03/01 19:12:29 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,13 @@ void	play_it(t_env *env)
 	}
 	if (env->infos.echap)
 		clear(), refresh(), endwin();
+}
+
+void	print_highscore(t_env *env)
+{
+	if (read_hscore(env) != -1)
+	{
+		mvprintw((WINY(env) / 4), (WINX(env) / 2) - 1, "High Score : ");
+		mvprintw((WINY(env) / 4), (WINX(env) / 2) + 13, env->infos.buf);
+	}
 }
