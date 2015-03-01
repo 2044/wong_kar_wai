@@ -6,7 +6,7 @@
 /*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 00:45:26 by avallete          #+#    #+#             */
-/*   Updated: 2015/03/01 12:34:36 by avallete         ###   ########.fr       */
+/*   Updated: 2015/03/01 12:39:49 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	main(void)
 	t_env	env;
 	t_const	win_value;
 
+	win_value = WIN_VALUE;
 	env.def = win_value;
 	env.infos.echap = 0;
 	env.infos.win = 0;
