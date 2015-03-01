@@ -6,7 +6,7 @@
 /*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:04:06 by avallete          #+#    #+#             */
-/*   Updated: 2015/03/01 12:01:33 by avallete         ###   ########.fr       */
+/*   Updated: 2015/03/01 12:27:56 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # define CASEV(x, y) (env->tab[y][x].value)
 # define CASEX(x, y) (env->tab[y][x].x)
 # define CASEY(x, y) (env->tab[y][x].y)
-# define CASEC(x, y) (env->tab[y][x].color)
+# define CASEC(x, y) (env->tab[y][x].nbcolor)
 # define CASESTR(x, y) (env->tab[y][x].str)
 # define K_ECHAP 27
 
@@ -59,7 +59,7 @@ typedef struct		s_case
 	unsigned int	value;
 	unsigned int	x;
 	unsigned int	y;
-	int				color;
+	int				nbcolor;
 	char			*str;
 }					t_case;
 
@@ -110,4 +110,19 @@ int					check_ln(t_env *env);
 int					check_col(t_env *env);
 void				game_over(t_env *env);
 int					is_fill(t_env *env);
+
+/*
+** COLOR
+*/
+void				init_numbercolor(void);
+
+/*
+** KEYS
+*/
+void				key_hook(t_env *env, int c);
+
+/*
+** PLAY
+*/
+void				play_it(t_env *env);
 #endif

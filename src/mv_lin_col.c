@@ -6,7 +6,7 @@
 /*   By: yabadxe <marvxn@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 13:06:47 by yabadxe           #+#    #+#             */
-/*   Updated: 2015/03/01 12:01:32 by avallete         ###   ########.fr       */
+/*   Updated: 2015/03/01 12:03:57 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ unsigned int	find_next_nb(t_env *env, int y, int x, int f)
 	return (0);
 }
 
-void	tab_mvline(t_env *env, int y, int x, int f)
+void			tab_mvline(t_env *env, int y, int x, int f)
 {
 	while ((LR(x, f)))
 	{
@@ -66,7 +66,7 @@ unsigned int	find_next_nb_col(t_env *env, int y, int x, int f)
 	return (0);
 }
 
-void	tab_mvcol(t_env *env, int y, int x, int f)
+void			tab_mvcol(t_env *env, int y, int x, int f)
 {
 	while (LR(y, f))
 	{

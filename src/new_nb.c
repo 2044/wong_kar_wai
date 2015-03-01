@@ -6,7 +6,7 @@
 /*   By: jabadie <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 15:02:41 by jabadie           #+#    #+#             */
-/*   Updated: 2015/03/01 11:20:21 by avallete         ###   ########.fr       */
+/*   Updated: 2015/03/01 12:06:14 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		two_or_four(void)
 		return (2);
 }
 
-int	is_fill(t_env *env)
+int		is_fill(t_env *env)
 {
 	int x;
 	int y;
@@ -38,6 +38,14 @@ int	is_fill(t_env *env)
 		y++;
 	}
 	return (1);
+}
+
+void	give_random(t_env *env, int j, int i)
+{
+	CASEV(j, i) = two_or_four();
+	env->infos.dep = 0;
+	env->infos.join = 0;
+	return ;
 }
 
 void	add_nb(t_env *env)
@@ -59,12 +67,7 @@ void	add_nb(t_env *env)
 			while (i < 4)
 			{
 				if (CASEV(j, i) == 0 && rand() % chance == 0)
-				{
-					CASEV(j, i) = two_or_four();
-					env->infos.dep = 0;
-					env->infos.join = 0;
-					return ;
-				}
+					return (give_random(env, j, i));
 				i++;
 			}
 			j++;

@@ -6,70 +6,23 @@
 /*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 00:45:26 by avallete          #+#    #+#             */
-/*   Updated: 2015/03/01 11:30:00 by avallete         ###   ########.fr       */
+/*   Updated: 2015/03/01 12:34:36 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <wong.h>
 
-void	init_numbercolor(void)
-{
-	start_color();
-	init_pair(0, COLOR_WHITE, COLOR_BLACK);
-	init_pair(1, COLOR_CYAN, COLOR_BLACK);
-	init_pair(2, COLOR_YELLOW, COLOR_BLACK);
-	init_pair(3, COLOR_RED, COLOR_BLACK);
-	init_pair(4, COLOR_GREEN, COLOR_BLACK);
-	init_pair(5, COLOR_MAGENTA, COLOR_BLACK);
-}
-
-void	key_hook(t_env *env, int c)
-{
-	if (c == K_ECHAP)
-		env->infos.echap = 1;
-	if (c == KEY_UP || c == KEY_DOWN)
-	{
-		c == KEY_UP ? mv_up(env) : mv_down(env);
-		env->infos.dep || env->infos.join ? add_nb(env) : 0;
-		modify_tab(env);
-		game_over(env);
-		win_or_not(env);
-	}
-	if (c == KEY_LEFT || c == KEY_RIGHT)
-	{
-		c == KEY_LEFT ? mv_left(env) : mv_right(env);
-		env->infos.dep || env->infos.join ? add_nb(env) : 0;
-		modify_tab(env);
-		game_over(env);
-		win_or_not(env);
-	}
-}
-
-void	play_it(t_env *env)
-{
-	signal(SIGINT, SIG_IGN);
-	keypad(stdscr, TRUE);
-	while ((1 && (!(env->infos.echap))))
-	{
-		expose_term(env);
-		grep_window_value(env), expose_term(env);
-		key_hook(env, wgetch(stdscr));
-	}
-	if (env->infos.echap)
-		clear(), refresh(), endwin();
-}
-
 int	main(void)
 {
 	t_env	env;
-	enum	WIN_VALUE;
+	t_const	win_value;
 
-	env.def = WIN_VALUE;
+	env.def = win_value;
 	env.infos.echap = 0;
 	env.infos.win = 0;
 	env.infos.dep = 0;
 	env.infos.join = 0;
-	if (((WIN_VALUE & (WIN_VALUE - 1)) == 0) && WIN_VALUE >= 2)
+	if (((win_value & (win_value - 1)) == 0) && win_value >= 2)
 	{
 		new_window();
 		clear();
@@ -83,6 +36,6 @@ int	main(void)
 		play_it(&env);
 	}
 	else
-		ft_printf("Error bad WIN_VALUE, not 2 pow");
+		ft_printf("Error bad win_value, not 2 pow");
 	return (0);
 }
